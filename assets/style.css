@@ -1,0 +1,5 @@
+
+
+/* Logo placement */
+.brand { display: flex; align-items: center; gap: 0.75rem; }
+.brand-logo { width: clamp(28px, 2.6vw, 40px); height: clamp(28px, 2.6vw, 40px); }

@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:4.0
+N:Munroe;James;;Dr.;
+FN:Dr. James Munroe
+ORG:Elemental Earth Data Ltd.
+TITLE:Principal
+EMAIL;type=INTERNET;type=WORK;pref=1:jmunroe@earthdata.ca
+URL:https://example.com
+END:VCARD

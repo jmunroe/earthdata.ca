@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+# Elemental Earth Data Ltd. — Single Page Site
 
-You can use the [editor on GitHub](https://github.com/jmunroe/earthdata.ca/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+A minimal, accessible one-pager for Elemental Earth Data Ltd. Suitable for GitHub Pages.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Files
 
-### Markdown
+- `index.html` – the page
+- `styles.css` – styling
+- `favicon.svg` – tab icon
+- `.nojekyll` – bypass Jekyll build (static files only)
+- `robots.txt` – allow indexing
+- `elemental-earth-data.vcf` – vCard for easy contact saving
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Quick start
 
-```markdown
-Syntax highlighted code block
+Open `index.html` in a browser, or deploy via GitHub Pages.
 
-# Header 1
-## Header 2
-### Header 3
+## After deploying
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jmunroe/earthdata.ca/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- Update the `og:url` and `canonical` URLs in `index.html` to your live domain.
+- If using a custom domain, add it under **Settings → Pages** and create the DNS records at your registrar.
