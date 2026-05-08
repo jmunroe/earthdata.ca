@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Earthdata Associates — Systems · Apps · AI · Geospatial</title>
 <meta name="description" content="Independent technical consultancy. Business systems architecture, custom applications, AI adoption, and geospatial/environmental data work. Huntsville, Ontario.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://earthdata.ca">
+<meta property="og:title" content="Earthdata Associates — Systems · Apps · AI · Geospatial">
+<meta property="og:description" content="Independent technical consultancy. Business systems architecture, custom applications, AI adoption, and geospatial/environmental data work. Huntsville, Ontario.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Earthdata Associates — Systems · Apps · AI · Geospatial">
+<meta name="twitter:description" content="Independent technical consultancy. Business systems architecture, custom applications, AI adoption, and geospatial/environmental data work. Huntsville, Ontario.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -482,6 +490,12 @@
   @keyframes reveal {
     to { opacity: 1; transform: translateY(0); }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+    .blink { animation: none; opacity: 1; }
+    .strip-track { animation: none; }
+  }
 </style>
 </head>
 <body>
@@ -531,7 +545,7 @@
   </div>
 
   <!-- decorative data viz -->
-  <svg class="hero-viz" width="180" height="60" viewBox="0 0 180 60" fill="none">
+  <svg class="hero-viz" width="180" height="60" viewBox="0 0 180 60" fill="none" aria-hidden="true">
     <polyline points="0,45 20,38 40,42 60,28 80,32 100,18 120,24 140,12 160,16 180,4"
               stroke="#2d5d3f" stroke-width="1.5" fill="none"/>
     <polyline points="0,52 20,50 40,46 60,48 80,40 100,42 120,34 140,36 160,28 180,22"
@@ -672,28 +686,30 @@
         <p class="contact-lede">Initial conversations are free and informal — a 30-minute call to figure out whether we're a fit before anyone commits to anything.</p>
       </div>
 
-      <dl class="contact-card">
-        <div class="contact-row">
-          <dt>Email</dt>
-          <dd><a href="mailto:jmunroe@earthdata.ca">jmunroe@earthdata.ca</a></dd>
-        </div>
-        <div class="contact-row">
-          <dt>Web</dt>
-          <dd><a href="https://earthdata.ca">earthdata.ca</a></dd>
-        </div>
-        <div class="contact-row">
-          <dt>Based</dt>
-          <dd>Huntsville, Ontario</dd>
-        </div>
-        <div class="contact-row">
-          <dt>Working</dt>
-          <dd>Across Canada &amp; remote</dd>
-        </div>
+      <div class="contact-card">
+        <dl>
+          <div class="contact-row">
+            <dt>Email</dt>
+            <dd><a href="mailto:jmunroe@earthdata.ca">jmunroe@earthdata.ca</a></dd>
+          </div>
+          <div class="contact-row">
+            <dt>Web</dt>
+            <dd><a href="https://earthdata.ca">earthdata.ca</a></dd>
+          </div>
+          <div class="contact-row">
+            <dt>Based</dt>
+            <dd>Huntsville, Ontario</dd>
+          </div>
+          <div class="contact-row">
+            <dt>Working</dt>
+            <dd>Across Canada &amp; remote</dd>
+          </div>
+        </dl>
         <a href="mailto:jmunroe@earthdata.ca?subject=Earthdata%20Associates%20—%20Initial%20Conversation" class="cta-button">
           <span>Book a Discovery Call</span>
           <span class="arrow">→</span>
         </a>
-      </dl>
+      </div>
     </div>
   </div>
 </section>
