@@ -1,114 +1,713 @@
-<!doctype html>
-<html lang="en-CA">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Elemental Earth Data Ltd.</title>
-  <meta name="description" content="Elemental Earth Data Ltd. — consulting in ocean & environmental data, big data workflows, open science, machine learning, and numerical modelling. Principal: Dr. James Munroe." />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Elemental Earth Data Ltd.">
-  <meta property="og:description" content="Consulting in ocean & environmental data, big data workflows, open science, machine learning, and numerical modelling.">
-  <!-- Replace the URL below after deploying (e.g., https://elementalearthdata.github.io or https://earthdata.ca) -->
-  <meta property="og:url" content="https://example.com">
-  <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://example.com">
-
-    <link rel="stylesheet" href="styles.css">
-
-  <!-- Structured data for better SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Elemental Earth Data Ltd.",
-    "url": "https://example.com",
-    "email": "mailto:jmunroe@earthdata.ca",
-    "description": "Consulting in ocean and environmental data, big data workflows, open science, machine learning, and numerical modelling.",
-    "founder": {
-      "@type": "Person",
-      "name": "Dr. James Munroe",
-      "jobTitle": "Principal"
-    },
-    "areaServed": "Global"
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earthdata Associates — Systems · Apps · AI · Geospatial</title>
+<meta name="description" content="Independent technical consultancy. Business systems architecture, custom applications, AI adoption, and geospatial/environmental data work. Huntsville, Ontario.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-alt: #ebe7dc;
+    --ink: #14181a;
+    --ink-soft: #3a4448;
+    --muted: #6b7378;
+    --rule: #14181a;
+    --rule-soft: #c9c2b2;
+    --accent: #2d5d3f;
+    --accent-warm: #b8541f;
+    --grid-line: rgba(20, 24, 26, 0.06);
+    --display: 'Fraunces', Georgia, serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
   }
-  </script>
-  <meta name="color-scheme" content="light dark">
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 56px 56px;
+    background-position: -1px -1px;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--ink); color: var(--bg); }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === TOP BAR === */
+  .topbar {
+    border-bottom: 1px solid var(--ink);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .topbar-left { display: flex; gap: 24px; align-items: center; }
+  .topbar-mark { font-weight: 600; }
+  .topbar-meta { color: var(--muted); }
+  .topbar-right { display: flex; gap: 24px; }
+  .topbar-right a { color: var(--ink); text-decoration: none; transition: color 0.2s; }
+  .topbar-right a:hover { color: var(--accent-warm); }
+  .blink {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: blink 2s infinite;
+    vertical-align: middle;
+  }
+  @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0.3; } }
+
+  @media (max-width: 720px) {
+    .topbar-meta, .topbar-right .hide-mobile { display: none; }
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 64px;
+    align-items: end;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+    font-variation-settings: "opsz" 144;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .hero h1 .slash {
+    color: var(--rule-soft);
+    font-weight: 300;
+    margin: 0 0.05em;
+  }
+  .hero-lede {
+    font-family: var(--display);
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.45;
+    font-weight: 400;
+    max-width: 620px;
+    color: var(--ink-soft);
+  }
+  .hero-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    border-left: 1px solid var(--ink);
+    padding-left: 20px;
+  }
+  .hero-meta dt {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .hero-meta dd {
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .hero-meta dd:last-child { margin-bottom: 0; }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-meta { border-left: none; border-top: 1px solid var(--ink); padding-left: 0; padding-top: 24px; }
+  }
+
+  /* === SECTION HEADERS === */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 12px;
+    margin-bottom: 40px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+  .section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  /* === SERVICES MATRIX === */
+  .services {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--ink);
+  }
+  .service {
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 32px 28px;
+    background: var(--bg);
+    transition: background 0.3s;
+    position: relative;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .service:hover { background: var(--bg-alt); }
+  .service-id {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .service h3 {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .service p {
+    font-family: var(--display);
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .service-tags {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border-top: 1px dashed var(--rule-soft);
+    padding-top: 14px;
+  }
+  .service-tags span:not(:last-child)::after {
+    content: " · ";
+    color: var(--rule-soft);
+  }
+
+  @media (max-width: 720px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  /* === ABOUT === */
+  .about {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+  }
+  .about-prose {
+    font-family: var(--display);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .about-prose p { margin-bottom: 20px; }
+  .about-prose strong { color: var(--ink); font-weight: 500; }
+  .credentials {
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .cred-block {
+    border-top: 1px solid var(--ink);
+    padding: 20px 0;
+  }
+  .cred-block:last-child { border-bottom: 1px solid var(--ink); }
+  .cred-label {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+  .cred-value {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .cred-value em {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--accent);
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* === DATA STRIP === */
+  .strip {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 36px 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--ink);
+  }
+  .strip-track {
+    display: flex;
+    gap: 64px;
+    white-space: nowrap;
+    animation: scroll 40s linear infinite;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .strip-track span { display: inline-flex; align-items: center; gap: 12px; }
+  .strip-track span::before {
+    content: "◆";
+    color: var(--accent-warm);
+    font-size: 8px;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* === CONTACT === */
+  .contact {
+    padding: 100px 0 60px;
+    position: relative;
+  }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .contact h2 {
+    font-family: var(--display);
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .contact h2 em {
+    font-style: italic;
+    color: var(--accent-warm);
+  }
+  .contact-lede {
+    font-family: var(--display);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 480px;
+  }
+  .contact-card {
+    border: 1px solid var(--ink);
+    background: var(--bg);
+    padding: 36px;
+    font-family: var(--mono);
+  }
+  .contact-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--rule-soft);
+    font-size: 13px;
+  }
+  .contact-row:last-of-type { border-bottom: none; }
+  .contact-row dt {
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding-top: 3px;
+  }
+  .contact-row dd { font-weight: 500; text-align: right; }
+  .contact-row a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-warm);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+  .contact-row a:hover { color: var(--accent-warm); }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 16px 24px;
+    background: var(--ink);
+    color: var(--bg);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .cta-button:hover { background: var(--accent); transform: translateX(2px); }
+  .cta-button .arrow { transition: transform 0.2s; }
+  .cta-button:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 900px) {
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* === FOOTER === */
+  footer {
+    border-top: 1px solid var(--ink);
+    padding: 28px 0;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .footer-mark { color: var(--ink); font-weight: 600; }
+
+  /* === DECORATIVE SVG ELEMENTS === */
+  .corner-mark {
+    position: absolute;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+  .corner-mark.tl { top: 16px; left: 32px; }
+  .corner-mark.tr { top: 16px; right: 32px; }
+
+  .hero-viz {
+    position: absolute;
+    bottom: 30px;
+    right: 32px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @media (max-width: 720px) {
+    .hero-viz { display: none; }
+    .container { padding: 0 20px; }
+    .topbar-inner { padding: 14px 20px; }
+    .corner-mark.tl { left: 20px; }
+    .corner-mark.tr { right: 20px; }
+  }
+
+  /* === LOAD ANIMATION === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: reveal 0.8s ease-out forwards;
+  }
+  .reveal-1 { animation-delay: 0.1s; }
+  .reveal-2 { animation-delay: 0.25s; }
+  .reveal-3 { animation-delay: 0.4s; }
+  .reveal-4 { animation-delay: 0.55s; }
+  @keyframes reveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="wrap">
-      <div class="brand">
-        <img class="brand-logo" src="assets/earthdata_colour.png" alt="Elemental Earth Data logo" width="40" height="40" decoding="async" loading="eager" />
-        <div class="wordmark">
-          <strong>Elemental Earth Data Ltd.</strong>
-          <span>Ocean &amp; Environmental Data Consulting</span>
+<!-- TOP BAR -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span class="topbar-mark">◐ EARTHDATA / ASSOC.</span>
+      <span class="topbar-meta">HUNTSVILLE ON</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#services">Services</a>
+      <a href="#about" class="hide-mobile">About</a>
+      <a href="#contact"><span class="blink"></span>Available</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="corner-mark tl">N 45.3271° / W 79.2186°</span>
+  <span class="corner-mark tr">v.1 · 2026</span>
+
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow reveal reveal-1">Independent Technical Consultancy</div>
+        <h1 class="reveal reveal-2">
+          Systems<span class="slash">/</span>Apps<br>
+          AI<span class="slash">/</span><em>Geospatial</em>
+        </h1>
+        <p class="hero-lede reveal reveal-3">
+          We help organizations turn complex data and systems challenges into practical, working solutions — built to fit how you actually operate.
+        </p>
+      </div>
+
+      <dl class="hero-meta reveal reveal-4">
+        <dt>Operator</dt>
+        <dd>James / Earthdata Associates</dd>
+        <dt>Entity</dt>
+        <dd>1001520803 Ontario Inc.</dd>
+        <dt>Status</dt>
+        <dd>● Accepting engagements</dd>
+      </dl>
+    </div>
+  </div>
+
+  <!-- decorative data viz -->
+  <svg class="hero-viz" width="180" height="60" viewBox="0 0 180 60" fill="none">
+    <polyline points="0,45 20,38 40,42 60,28 80,32 100,18 120,24 140,12 160,16 180,4"
+              stroke="#2d5d3f" stroke-width="1.5" fill="none"/>
+    <polyline points="0,52 20,50 40,46 60,48 80,40 100,42 120,34 140,36 160,28 180,22"
+              stroke="#b8541f" stroke-width="1" fill="none" stroke-dasharray="2,3"/>
+    <line x1="0" y1="58" x2="180" y2="58" stroke="#14181a" stroke-width="0.5"/>
+  </svg>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">§ 01</span>
+      <span class="section-title">Practice Areas</span>
+      <span class="section-num">04 / 04</span>
+    </div>
+
+    <div class="services-grid">
+      <article class="service">
+        <div class="service-id"><span>SVC.01</span><span>→</span></div>
+        <div>
+          <h3>Business Systems Architecture</h3>
+          <p>Map, untangle, and redesign the systems your organization runs on — so your tools support your work instead of fighting it.</p>
+        </div>
+        <div class="service-tags">
+          <span>CRM</span><span>Workflow</span><span>Integration</span><span>Data Modeling</span>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="service-id"><span>SVC.02</span><span>→</span></div>
+        <div>
+          <h3>Custom Application Development</h3>
+          <p>Purpose-built web apps and tools for the gaps off-the-shelf software can't fill — modern stack, well-documented, yours to own.</p>
+        </div>
+        <div class="service-tags">
+          <span>React</span><span>Supabase</span><span>PWA</span><span>APIs</span>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="service-id"><span>SVC.03</span><span>→</span></div>
+        <div>
+          <h3>AI Adoption</h3>
+          <p>Practical, no-hype guidance on where AI actually fits your operation — and how to deploy it safely, usefully, and on your terms.</p>
+        </div>
+        <div class="service-tags">
+          <span>Strategy</span><span>Tooling</span><span>Workflows</span><span>Training</span>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="service-id"><span>SVC.04</span><span>→</span></div>
+        <div>
+          <h3>Geospatial &amp; Environmental Data</h3>
+          <p>Spatial analysis, environmental data pipelines, and digital twin work — drawing on a research background in oceanography and computational science.</p>
+        </div>
+        <div class="service-tags">
+          <span>GIS</span><span>Remote Sensing</span><span>Modeling</span><span>Research</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">§ 02</span>
+      <span class="section-title">About</span>
+      <span class="section-num">— —</span>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-prose">
+        <p><strong>Earthdata Associates is a small, senior practice.</strong> No oversized teams, no off-the-shelf templates — just hands-on problem-solving across the seam where business systems, software, and data meet.</p>
+        <p>We work with small and mid-sized organizations, research groups, and other consultancies who need someone who can move comfortably between strategy and implementation.</p>
+      </div>
+
+      <div class="credentials">
+        <div class="cred-block">
+          <div class="cred-label">Background</div>
+          <div class="cred-value"><em>PhD</em> · Applied Mathematics &amp; Physics<br>Oceanography · Computational Science</div>
+        </div>
+        <div class="cred-block">
+          <div class="cred-label">Experience Spans</div>
+          <div class="cred-value">Academia · Scientific Consulting · Tech Product · Independent Practice</div>
+        </div>
+        <div class="cred-block">
+          <div class="cred-label">Tooling Fluency</div>
+          <div class="cred-value">React / Node / Python · Fortran · C/C++ · Supabase · GIS Stack · LLM Integration · MindStudio · Asana · HubSpot</div>
+        </div>
+        <div class="cred-block">
+          <div class="cred-label">Engagement Modes</div>
+          <div class="cred-value">Project-based · Fractional · Advisory</div>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main id="main" class="wrap" role="main">
-    <section class="hero">
-      <h1 class="visually-hidden">Elemental Earth Data Ltd.</h1>
-      <p class="lead">
-        Specialist consulting in <strong>ocean &amp; environmental data</strong>,
-        <strong>big data workflows</strong>, <strong>open science</strong>,
-        <strong>machine learning</strong>, and <strong>numerical modelling</strong>.
-      </p>
-      <p class="cta">
-        <a class="btn" href="mailto:jmunroe@earthdata.ca" title="Email Dr. James Munroe">Email: jmunroe@earthdata.ca</a>
-        <a class="btn btn-outline" href="elemental-earth-data.vcf" title="Download contact card (vCard)">Save Contact</a>
-      </p>
-    </section>
+<!-- DATA STRIP -->
+<div class="strip">
+  <div class="strip-track">
+    <span>Systems Architecture</span>
+    <span>Custom Applications</span>
+    <span>AI Adoption</span>
+    <span>Geospatial Analysis</span>
+    <span>Environmental Data</span>
+    <span>Project Management</span>
+    <span>Fractional Engagements</span>
+    <span>Research-Grade Solutions</span>
+    <!-- duplicate for seamless loop -->
+    <span>Systems Architecture</span>
+    <span>Custom Applications</span>
+    <span>AI Adoption</span>
+    <span>Geospatial Analysis</span>
+    <span>Environmental Data</span>
+    <span>Project Management</span>
+    <span>Fractional Engagements</span>
+    <span>Research-Grade Solutions</span>
+  </div>
+</div>
 
-    <section aria-labelledby="who">
-      <h2 id="who">Principal</h2>
-      <p>
-        <strong>Dr. James Munroe</strong> — Principal Consultant.
-        Based in Canada, available worldwide.
-      </p>
-      <ul class="badges" aria-label="Expertise">
-        <li>Oceanography</li>
-        <li>Environmental Data</li>
-        <li>Big Data &amp; Pipelines</li>
-        <li>Open Science</li>
-        <li>Machine Learning</li>
-        <li>Numerical Modelling</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="services">
-      <h2 id="services">What I help with</h2>
-      <ul class="list">
-        <li>Designing robust data architectures for ocean & environmental programs.</li>
-        <li>Building scalable workflows for data ingestion, processing, and QA/QC.</li>
-        <li>Reproducible research practices and open science tooling.</li>
-        <li>Statistical modelling and machine learning for forecasting and insight.</li>
-        <li>Numerical model setup, calibration, and uncertainty analysis.</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="contact">
-      <h2 id="contact">Get in touch</h2>
-      <p>
-        The fastest way to reach me is email: 
-        <a href="mailto:jmunroe@earthdata.ca">jmunroe@earthdata.ca</a>.
-      </p>
-    </section>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="wrap">
-      <small>&copy; <span id="y"></span> Elemental Earth Data Ltd.</small>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">§ 03</span>
+      <span class="section-title">Contact</span>
+      <span class="section-num">— —</span>
     </div>
-    <script>
-      // update copyright year without external dependencies
-      (function(){ var y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear(); })();
-    </script>
-  </footer>
+
+    <div class="contact-inner">
+      <div>
+        <h2>Got a tricky problem?<br><em>Let's talk.</em></h2>
+        <p class="contact-lede">Initial conversations are free and informal — a 30-minute call to figure out whether we're a fit before anyone commits to anything.</p>
+      </div>
+
+      <dl class="contact-card">
+        <div class="contact-row">
+          <dt>Email</dt>
+          <dd><a href="mailto:jmunroe@earthdata.ca">jmunroe@earthdata.ca</a></dd>
+        </div>
+        <div class="contact-row">
+          <dt>Web</dt>
+          <dd><a href="https://earthdata.ca">earthdata.ca</a></dd>
+        </div>
+        <div class="contact-row">
+          <dt>Based</dt>
+          <dd>Huntsville, Ontario</dd>
+        </div>
+        <div class="contact-row">
+          <dt>Working</dt>
+          <dd>Across Canada &amp; remote</dd>
+        </div>
+        <a href="mailto:jmunroe@earthdata.ca?subject=Earthdata%20Associates%20—%20Initial%20Conversation" class="cta-button">
+          <span>Book a Discovery Call</span>
+          <span class="arrow">→</span>
+        </a>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-mark">◐ EARTHDATA ASSOCIATES</span>
+      <span>© 1001520803 Ontario Inc.</span>
+      <span>Huntsville · ON · Canada</span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
